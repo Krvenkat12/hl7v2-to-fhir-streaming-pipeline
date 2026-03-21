@@ -1,0 +1,10 @@
+START,STOP,PATIENT,ENCOUNTER,CODE,SYSTEM,DESCRIPTION,TYPE,CATEGORY,REACTION1,DESCRIPTION1,SEVERITY1,REACTION2,DESCRIPTION2,SEVERITY2
+1995-12-09,,2599858b-51ef-bee3-b83b-6f9c11ee108a,2599858b-51ef-bee3-a68a-3f7d955f2151,609328004,Unknown,Allergic disposition (finding),allergy,environment,,,,,,
+1995-12-09,,2599858b-51ef-bee3-b83b-6f9c11ee108a,2599858b-51ef-bee3-a68a-3f7d955f2151,84489001,Unknown,Mold (organism),allergy,environment,,,,,,
+1995-12-09,,2599858b-51ef-bee3-b83b-6f9c11ee108a,2599858b-51ef-bee3-a68a-3f7d955f2151,260147004,Unknown,House dust mite (organism),allergy,environment,,,,,,
+1995-12-09,,2599858b-51ef-bee3-b83b-6f9c11ee108a,2599858b-51ef-bee3-a68a-3f7d955f2151,264287008,Unknown,Animal dander (substance),allergy,environment,878820003,Rhinoconjunctivitis (disorder),MODERATE,267036007,Dyspnea (finding),MILD
+1995-12-09,,2599858b-51ef-bee3-b83b-6f9c11ee108a,2599858b-51ef-bee3-a68a-3f7d955f2151,256277009,Unknown,Grass pollen (substance),allergy,environment,,,,,,
+1995-12-09,,2599858b-51ef-bee3-b83b-6f9c11ee108a,2599858b-51ef-bee3-a68a-3f7d955f2151,782576004,Unknown,Tree pollen (substance),allergy,environment,,,,,,
+1995-12-09,,2599858b-51ef-bee3-b83b-6f9c11ee108a,2599858b-51ef-bee3-a68a-3f7d955f2151,102263004,Unknown,Eggs (edible) (substance),allergy,food,,,,,,
+1995-12-09,,2599858b-51ef-bee3-b83b-6f9c11ee108a,2599858b-51ef-bee3-a68a-3f7d955f2151,412071004,Unknown,Wheat (substance),allergy,food,62315008,Diarrhea (finding),MODERATE,271807003,Eruption of skin (disorder),MODERATE
+1995-12-09,,2599858b-51ef-bee3-b83b-6f9c11ee108a,2599858b-51ef-bee3-a68a-3f7d955f2151,442571000124108,Unknown,Tree nut (substance),allergy,food,247472004,Wheal (finding),MODERATE,267036007,Dyspnea (finding),MODERATE

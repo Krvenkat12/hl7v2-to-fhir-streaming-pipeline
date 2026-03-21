@@ -1,0 +1,14 @@
+#ignore streamlit secrets
+./streamlit/secrets.toml
+.env
+
+#ignore virtual envs
+venv/
+env/
+
+#ignore python cache
+__pycache__/
+*.pyc
+
+# ignore synthea repo
+synthea/
