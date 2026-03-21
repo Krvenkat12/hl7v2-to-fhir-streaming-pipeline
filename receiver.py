@@ -4,6 +4,8 @@ import json
 import requests
 import psycopg2
 
+MAX_EMPTY_POLLS = 5
+
 # configure consumer
 conf = {
     'bootstrap.servers': 'localhost:9092',
@@ -82,9 +84,12 @@ conn = psycopg2.connect(
 # create cursor
 cur = conn.cursor()
 
+# delete existing table
+cur.execute("DROP TABLE IF EXISTS patients;")
+
 # create table
 cur.execute("""
-    CREATE TABLE IF NOT EXISTS patients (
+    CREATE TABLE patients (
         patient_id VARCHAR(255) PRIMARY KEY,
         first_name VARCHAR(255),
         last_name VARCHAR(255),
@@ -98,14 +103,24 @@ conn.commit()
 print("PostgreSQL connection established and table created")
 
 # create listening loop
+empty_poll_count = 0
+
 try:
     while True:
         msg = c.poll(1.0) # poll queue every 1s
         if msg is None:
+            empty_poll_count += 1
+            if empty_poll_count >= MAX_EMPTY_POLLS:
+                print("No more messages down. Shutting down.")
+                break
             continue
         if msg.error():
             print(f"Consumer error: {msg.error()}")
             continue
+
+        # reset counter
+        empty_poll_count = 0
+
         # extract message
         raw_hl7 = msg.value().decode('utf-8')
         parsed_msg = hl7.parse(raw_hl7)
@@ -134,6 +149,7 @@ try:
         cur.execute("""
             INSERT INTO patients (patient_id, first_name, last_name, dob, gender)
             VALUES (%s, %s, %s, %s, %s)
+            ON CONFLICT (patient_id) DO NOTHING;
             """, (id, f_name, l_name, dob, gender))
         conn.commit()
         
