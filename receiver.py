@@ -4,7 +4,7 @@ import json
 import requests
 import psycopg2
 
-MAX_EMPTY_POLLS = 5
+MAX_EMPTY_POLLS = 20
 
 # configure consumer
 conf = {
@@ -111,7 +111,7 @@ try:
         if msg is None:
             empty_poll_count += 1
             if empty_poll_count >= MAX_EMPTY_POLLS:
-                print("No more messages down. Shutting down.")
+                print("No more messages found. Shutting down.")
                 break
             continue
         if msg.error():
