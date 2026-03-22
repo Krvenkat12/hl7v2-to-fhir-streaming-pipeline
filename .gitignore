@@ -12,3 +12,4 @@ __pycache__/
 
 # ignore synthea repo
 synthea/
+output/
