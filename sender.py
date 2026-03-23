@@ -19,7 +19,7 @@ def delivery_report(err, msg):
     else:
         print(f'Message delivered to {msg.topic()} [{msg.partition()}]')
 
-patients_df = pd.read_csv("./output/csv/patients.csv")
+patients_df = pd.read_csv("patients.csv")
 
 # iterate through csv records to build HL7 messages and stream
 

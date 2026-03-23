@@ -9,4 +9,3 @@ docker-compose down
 echo ===================================================
 echo   Successfully shut down!
 echo ===================================================
-pause

@@ -37,11 +37,11 @@ echo [5/7] Opening HAPI FHIR server in your browser...
 start http://localhost:8080/fhir/Patient
 
 echo [6/7] Starting the ETL pipeline of sending, transforming, and receiving messages...
-start cmd /k "title Sender & python sender.py"
-start cmd /k "title Receiver & python receiver.py"
+start "Pipeline_Sender" cmd /k "python sender.py"
+start "Pipeline_Receiver" cmd /k "python receiver.py"
 
 echo [7/7] Launching Streamlit UI...
-start cmd /k "title Streamlit App & python -m streamlit run frontend.py"
+start "Pipeline_Streamlit_App" cmd /k "python -m streamlit run frontend.py"
 
 echo ==============================================
 echo Pipeline launched successfully!
