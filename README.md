@@ -16,8 +16,8 @@ The goal of this project is to convert patient messages from HL7v2 format, which
 
 ## Usage
 - Clone this repo
-- In a terminal, in the root of the project, type and enter ```.\run.bat``` to begin the program. This batch script prompts the user for their Gemini API key, which can be generateed for free [here](https://aistudio.google.com/), installs dependencies, starts the Docker containers, opens the FHIR server, and runs each Python script concurrently in three separate terminals.
-- To stop the program and terminate the Docker containers, type and enter ```.\stop.bat```.
+- In a terminal, in the root of the project, type and enter ```.\run.bat``` (or ```sh run.sh``` on Mac/Linux) to begin the program. This batch script prompts the user for their Gemini API key, which can be generateed for free [here](https://aistudio.google.com/), installs dependencies, starts the Docker containers, opens the FHIR server, and runs each Python script concurrently in three separate terminals.
+- To terminate the Docker containers, type and enter ```.\stop.bat``` (or ```sh stop.sh``` on Mac/Linux).
 
 ## Data Sources & Acknowledgement
 The mock patient data used to simulate the streaming environment in this project was generated using **[Synthea™](https://github.com/synthetichealth/synthea)**, an open-source, synthetic patient population simulator.
