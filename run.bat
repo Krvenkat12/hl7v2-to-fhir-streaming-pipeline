@@ -30,8 +30,8 @@ pip install -r requirements.txt
 echo [3/7] Starting Docker services (Kafka, Postgres, HAPI FHIR)...
 docker-compose up -d
 
-echo [4/7] Allowing 15 seconds for services to initialize...
-timeout /t 15 /nobreak > NUL
+echo [4/7] Allowing 45 seconds for services to initialize...
+timeout /t 45 /nobreak > NUL
 
 echo [5/7] Opening HAPI FHIR server in your browser...
 start http://localhost:8080/fhir/Patient
@@ -41,6 +41,7 @@ start "Pipeline_Sender" cmd /k "python sender.py"
 start "Pipeline_Receiver" cmd /k "python receiver.py"
 
 echo [7/7] Launching Streamlit UI...
+set STREAMLIT_GATHER_USAGE_STATS=false
 start "Pipeline_Streamlit_App" cmd /k "python -m streamlit run frontend.py"
 
 echo ==============================================

@@ -49,8 +49,8 @@ pip install -r requirements.txt
 echo "[3/7] Starting Docker services (Kafka, Postgres, HAPI FHIR)..."
 docker-compose up -d
 
-echo "[4/7] Allowing 15 seconds for services to initialize..."
-sleep 15
+echo "[4/7] Allowing 45 seconds for services to initialize..."
+sleep 45
 
 echo "[5/7] Opening HAPI FHIR server in your browser..."
 
@@ -67,6 +67,7 @@ python sender.py &
 python receiver.py &
 
 echo "[7/7] Launching Streamlit UI..."
+export STREAMLIT_GATHER_USAGE_STATS=false
 python -m streamlit run frontend.py &
 
 echo "=============================================="

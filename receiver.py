@@ -3,8 +3,10 @@ import hl7
 import json
 import requests
 import psycopg2
+import time
 
 MAX_EMPTY_POLLS = 20
+MAX_RETRIES = 5
 
 # configure consumer
 conf = {
@@ -132,12 +134,23 @@ try:
         # load
         headers = {'Content-Type': 'application/fhir+json'}
 
-        # POST to HAPI FHIR server
-        response = requests.post(
-            fhir_server_url,
-            json=fhir_json_dict,
-            headers=headers
-        )
+        # attempt to POST to HAPI FHIR server
+        for attempt in range(MAX_RETRIES):
+            try:
+                response = requests.post(
+                    fhir_server_url,
+                    data=fhir_json_dict,
+                    headers=headers
+                )
+                response.raise_for_status()
+                print("Successfully loaded patient into FHIR server.")
+                break
+            except requests.exceptions.ConnectionError:
+                print(f"FHIR server not ready. Retrying... ({attempt + 1} / {MAX_RETRIES})")
+                time.sleep(5)
+            except Exception as e:
+                print(f"Failed to load patient into FHIR: {e}")
+                break
 
         # sink to SQL DB
         id = fhir_json_dict['identifier'][0]['value']
