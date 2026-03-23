@@ -41,8 +41,7 @@ start "Pipeline_Sender" cmd /k "python sender.py"
 start "Pipeline_Receiver" cmd /k "python receiver.py"
 
 echo [7/7] Launching Streamlit UI...
-set STREAMLIT_GATHER_USAGE_STATS=false
-start "Pipeline_Streamlit_App" cmd /k "python -m streamlit run frontend.py"
+streamlit run frontend.py > NUL
 
 echo ==============================================
 echo Pipeline launched successfully!

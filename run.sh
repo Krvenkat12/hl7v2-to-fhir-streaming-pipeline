@@ -67,8 +67,7 @@ python sender.py &
 python receiver.py &
 
 echo "[7/7] Launching Streamlit UI..."
-export STREAMLIT_GATHER_USAGE_STATS=false
-python -m streamlit run frontend.py &
+streamlit run frontend.py > dev/null
 
 echo "=============================================="
 echo "Pipeline launched successfully!"

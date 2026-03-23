@@ -139,7 +139,7 @@ try:
             try:
                 response = requests.post(
                     fhir_server_url,
-                    data=fhir_json_dict,
+                    json=fhir_json_dict,
                     headers=headers
                 )
                 response.raise_for_status()
