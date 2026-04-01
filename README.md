@@ -16,6 +16,7 @@ The goal of this project is to convert patient messages from HL7v2 format, which
 
 ## Usage
 - Clone this repo.
+- Make sure Docker Desktop is running.
 - In the root of the project, open a terminal and type and enter ```.\run.bat``` (or ```sh run.sh``` on Mac/Linux) to begin the program. This batch script prompts the user for their Gemini API key, which can be generateed for free [here](https://aistudio.google.com/), installs dependencies, starts the Docker containers, opens the FHIR server, and runs each Python script concurrently.
 - To terminate the Docker containers, in a terminal, type and enter ```.\stop.bat``` (or ```sh stop.sh``` on Mac/Linux).
 
